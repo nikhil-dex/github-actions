@@ -2,28 +2,23 @@ name: CI
 
 on:
   push:
-   branches: [main]
+   paths: "*.py"
     
 jobs:
   code-lint:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v6
-      - name: Set up Python
-        uses: actions/setup-python@v7
-        with:
-          python-version: '3.12'
-          cache: 'pip'
-
+        uses: actions/checkout@v7
+    
       - name: Install dependencies
         run: pip install ruff
           
       - name: Run Ruff (Linter)
-        run: ruff check app.py
+        run: ruff check .
 
       - name: Run Ruff Format (Code Style)
-        run: ruff format --check app.py
+        run: ruff format .
           
   build-and-push:
     needs: code-lint
