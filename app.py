@@ -11,3 +11,7 @@ def hello_world():
 @app.route('/health')
 def health():
     return 'Server is up and running'
+
+@app.route('/api')
+def userlist():
+    return '{ uid: 12324 , username: nikhil-dex , name: nikhil } 
