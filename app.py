@@ -14,4 +14,4 @@ def health():
 
 @app.route('/api')
 def userlist():
-    return '{ uid: 12324 , username: nikhil-dex , name: nikhil } 
+    return '{ uid: 12324 , username: nikhil-dex , name: nikhil }'
